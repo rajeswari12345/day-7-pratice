@@ -1,0 +1,23 @@
+2   Extend the above program to sort the array and then find the 2nd largest
+       and the 2nd smallest element.
+
+#!/bin/bash #
+  qsort()
+ {
+ local pivot i smaller=() larger=() 
+qsort_ret=()
+ (($#==0)) && return 0
+ pivot=$1
+ shift for i; do
+ iif [[ $i < $pivot ]]; then
+ smaller+=( "$i" )
+ Else
+ larger+=( "$i" )
+ Fi
+ done
+ qsort "${smaller[@]}" smaller=( "${qsort_ret[@]}" )
+ qsort "${larger[@]}" larger=( "${qsort_ret[@]}" )
+ qsort_ret=( "${smaller[@]}" "$pivot" "${larger[@]}" ) 
+}
+
+ 
